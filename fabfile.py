@@ -32,8 +32,9 @@ def init():
     if EMPEROR_MODE:
         vassals = prompt(f'We will use "{VASSALS}" as the directory for the vassals, or specify the path:') or VASSALS
     username = prompt(f'Enter the database user name:')
-    password = getpass.getpasss(f'Enter the database user password:')
-    local(f'pip install -r {BASE_DIR}/requirements/dev.txt')
+    password = getpass.getpass(f'Enter the database user password:')
+    local(f'make pip')
+    local(f'make dev')
     if not os.path.exists('templates'):
         local('mkdir templates')
     if not os.path.exists('static'):
